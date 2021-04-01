@@ -1,11 +1,13 @@
 package kr.hs.study.beans;
 
-public class SonySpeaker {
+public class SonySpeaker implements Speaker{
 
-	public void volumeUp() {
-		System.out.println("º¼·ý¾÷");
+	public String VolumeUP() {
+		// TODO Auto-generated method stub
+		return "º¼·ý ¾÷";
 	}
-	public void volumeDown() {
-		System.out.println("º¼·ý¾÷");
+	public String VolumeDown() {
+		// TODO Auto-generated method stub
+		return "º¼·ý ´Ù¿î";
 	}
 }

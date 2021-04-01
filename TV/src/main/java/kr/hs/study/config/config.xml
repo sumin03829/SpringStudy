@@ -7,7 +7,16 @@
                          http://www.springframework.org/schema/context
                          http://www.springframework.org/schema/context/spring-context.xsd">
                          
+    <bean id="sonyspeaker" class="kr.hs.study.beans.SonySpeaker"/>
+    <bean id="applespaker" class="kr.hs.study.beans.AppleSpeaker"/>
+    
 	<bean id="samsung" class="kr.hs.study.beans.SamsungTV">
-		<property name=""/>
+		<property name="price" value="20"/>
+		<property name="speaker" ref="sonyspeaker"/>
+	</bean>
+	
+	<bean id="lg" class="kr.hs.study.beans.LgTV">
+		<constructor-arg value="20" index="0"/>
+		<constructor-arg ref="applespaker" index="1"/>
 	</bean>
 </beans>

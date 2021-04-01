@@ -31,13 +31,13 @@ public class SamsungTV implements TV{
 		this.speaker = speaker;
 	}
 
-	public void PowerOn() {
-		System.out.println("Àü¿ø ÄÔ");
+	public String PowerOn() {
+		return "Àü¿ø Å´";
 		
 	}
 
-	public void PowerDown() {
-		System.out.println("Àü¿ø ²û");
+	public String PowerDown() {
+		return "Àü¿ø ²û";
 		
 	}
 	
