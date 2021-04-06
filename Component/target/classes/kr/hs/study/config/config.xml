@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                         http://www.springframework.org/schema/beans/spring-beans.xsd
+                         http://www.springframework.org/schema/context
+                         http://www.springframework.org/schema/context/spring-context.xsd">
+                         
+	<bean id="obj1" class="kr.hs.study.beans.TestBean1"/>
+	
+	<context:annotation-config></context:annotation-config>
+	
+	<!-- 저장된 패키지안에 있는 bean들의 annotation을 분석해서 생성한다. -->
+    <context:component-scan base-package="kr.hs.study.beans"/>
+    
+    <!-- <bean id="obj2" class="kr.hs.study.beans.TestBean6">
+    	<constructor-arg value="70" index="0"/>
+    	<constructor-arg value="77.77" index="1"/>
+    	<constructor-arg ref="DataBean4" index="2"/>
+    	<constructor-arg ref="DataBean5" index="3"/>
+    </bean> -->
+</beans>
