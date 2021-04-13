@@ -1,0 +1,60 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:aop="http://www.springframework.org/schema/aop"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
+                       http://www.springframework.org/schema/beans/spring-beans.xsd
+                       http://www.springframework.org/schema/context
+                       http://www.springframework.org/schema/context/spring-context.xsd
+                       http://www.springframework.org/schema/aop
+                       http://www.springframework.org/schema/aop/spring-aop.xsd">
+  
+ <context:annotation-config/>
+ <bean id="t1" class="kr.hs.study.beans.TestBean1"/>
+ <bean id="t2" class="kr.hs.study.beans.TestBean2"/>
+ <bean id="advice" class="kr.hs.study.advisor.Advice"/>
+ 
+ 
+<aop:config>
+	<aop:aspect ref="advice">
+		<!-- <aop:pointcut id="point" expression="execution(* method3())"/> -->
+		<aop:pointcut expression="execution(* kr.hs.study.beans..Test*.method*())" id="point"/>
+		<aop:before method="beforeMethod" pointcut-ref="point"/>
+	</aop:aspect>
+</aop:config>
+
+<aop:config>
+	<aop:aspect ref="advice">
+		<aop:pointcut id="point2" expression="execution(* method2())"/>
+	<!--<aop:after method="afterMethod" pointcut-ref="point2"/>
+		<aop:before method="beforeMethod" pointcut-ref="point2"/> -->
+		<aop:around method="aroundMethod" pointcut-ref="point"/>
+	</aop:aspect>
+</aop:config>
+
+<aop:config>
+	<aop:aspect ref="advice">
+		<aop:pointcut id="point3" expression="execution(* func1())"/>
+		<aop:around method="aroundMethod" pointcut-ref="point3"/>
+		<aop:after-throwing method="afterThrowing" pointcut-ref="point3" throwing="e"/>
+	</aop:aspect>
+</aop:config>
+
+<aop:config>
+	<aop:aspect ref="advice">
+		<aop:pointcut id="point4" expression="execution(* func4())"/>
+		<aop:around method="aroundMethod" pointcut-ref="point4"/>
+		<aop:after-returning method="afterReturning"/>
+	</aop:aspect>
+</aop:config>
+
+<aop:config>
+	<aop:aspect ref="advice">
+		<aop:pointcut id="point4" expression="execution(* func4())"/>
+		<aop:around method="aroundMethod" pointcut-ref="point4"/>
+	</aop:aspect>
+</aop:config>
+
+</beans>
+
+
